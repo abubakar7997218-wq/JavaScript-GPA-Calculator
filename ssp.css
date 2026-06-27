@@ -1,0 +1,125 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f4f4f4;
+}
+
+header{
+    background: #222;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+.container{
+    width: 800px;
+    margin: 40px auto;
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+.input-section{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
+    align-items: end;
+}
+
+.field{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-width: 180px;
+}
+
+label{
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+input,
+select{
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    outline: none;
+}
+
+input:focus,
+select:focus{
+    border-color: royalblue;
+}
+
+button{
+    padding: 12px 20px;
+    font-size: 16px;
+    background: slategrey;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover{
+    background: cadetblue;
+}
+
+table{
+    width: 100%;
+    border-collapse: collapse;
+    margin: 25px 0;
+}
+
+th{
+    background: slategrey;
+    color: white;
+}
+
+th,
+td{
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: center;
+}
+
+tr:nth-child(even){
+    background: #f9f9f9;
+}
+
+#gpa{
+    width: 120px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+    margin-left: 10px;
+}
+
+h2{
+    margin-top: 20px;
+}
+
+hr{
+    margin: 25px 0;
+}
+.delete-btn{
+    background:red;
+    color:white;
+    border:none;
+    padding:8px 12px;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+.delete-btn:hover{
+    background:darkred;
+}

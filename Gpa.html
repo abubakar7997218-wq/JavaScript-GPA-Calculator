@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GPA Calculator</title>
+    <link rel="stylesheet" href="ssp.css">
+</head>
+<body>
+
+    <header>
+        <h1>GPA Calculator</h1>
+    </header>
+
+    <main>
+
+        <div class="container">
+
+            <!-- Input Section -->
+            <div class="input-section">
+
+                <div class="field">
+                    <label for="cn">Course Name</label>
+                    <input type="text" id="cn" placeholder="Enter Course Name">
+                </div>
+
+                <div class="field">
+                    <label for="ch">Credit Hours</label>
+                    <select id="ch">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                    </select>
+                </div>
+
+                <div class="field">
+                    <label for="grade">Grade</label>
+
+                    <select id="grade">
+
+                        <option value="A+">A+</option>
+                        <option value="A">A</option>
+                        <option value="A-">A-</option>
+
+                        <option value="B+">B+</option>
+                        <option value="B">B</option>
+                        <option value="B-">B-</option>
+
+                        <option value="C+">C+</option>
+                        <option value="C">C</option>
+                        <option value="C-">C-</option>
+
+                        <option value="D+">D+</option>
+                        <option value="D">D</option>
+                        <option value="D-">D-</option>
+                        <option value="F">F</option>
+
+                    </select>
+
+                </div>
+
+                <button id="addCourse">
+                    Add Course
+                </button>
+
+            </div>
+
+            <hr>
+
+            <!-- Table -->
+
+            <table id="courseTable">
+
+                <thead>
+<tr>
+    <th>Course</th>
+    <th>Credit Hours</th>
+    <th>Grade</th>
+    <th>Grade Point</th>
+    <th>Action</th>
+</tr>
+</thead>
+
+                <tbody id="tableBody">
+
+                </tbody>
+
+            </table>
+
+            <hr>
+
+            <button id="calculate">
+                Calculate GPA
+            </button>
+
+            <h2>
+                Your GPA :
+                <input type="text" id="gpa" readonly>
+            </h2>
+
+        </div>
+
+    </main>
+
+    <script src="scrip.js"></script>
+
+</body>
+</html>
