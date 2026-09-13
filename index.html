@@ -5,13 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
 <title>GPA Calculator Pro</title>
 <link rel="stylesheet" href="ssp.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
 
-<button id="themeToggle" class="theme-toggle" title="Toggle Dark Mode">🌙</button>
+<button id="themeToggle" class="theme-toggle" title="Toggle Dark Mode"><i class="fa-solid fa-moon"></i></button>
 
 <header>
-    <h1>🎓 GPA Calculator Pro</h1>
+    <h1><i class="fa-solid fa-graduation-cap"></i> GPA Calculator Pro</h1>
     <p class="subtitle">Add your courses, pick a grade, and get your GPA instantly</p>
 </header>
 
@@ -74,7 +75,7 @@
             </div>
 
             <button id="addCourse" class="btn btn-primary">
-                <span>➕</span> Add Course
+                <i class="fa-solid fa-plus"></i> Add Course
             </button>
 
         </div>
@@ -96,12 +97,12 @@
                 <tbody id="tableBody"></tbody>
             </table>
 
-            <p id="emptyMsg" class="empty-msg">No courses added yet. Add your first course above ⬆️</p>
+            <p id="emptyMsg" class="empty-msg"><i class="fa-solid fa-arrow-up"></i> No courses added yet. Add your first course above</p>
         </div>
 
         <div class="action-row">
-            <button id="calculate" class="btn btn-primary">📊 Calculate GPA</button>
-            <button id="clearAll" class="btn btn-danger">🗑️ Clear All</button>
+            <button id="calculate" class="btn btn-primary"><i class="fa-solid fa-chart-simple"></i> Calculate GPA</button>
+            <button id="clearAll" class="btn btn-danger"><i class="fa-solid fa-trash"></i> Clear All</button>
         </div>
 
         <hr>
@@ -114,7 +115,7 @@
 
         <!-- Grade Scale Reference -->
         <details class="scale-info">
-            <summary>📋 Grade Point Scale</summary>
+            <summary><i class="fa-solid fa-list-check"></i> Grade Point Scale</summary>
             <div class="scale-grid">
                 <span>A+ / A = 4.00</span>
                 <span>A- = 3.70</span>
@@ -135,7 +136,7 @@
 </main>
 
 <footer>
-    <p>Made with ❤️ — Your data is saved automatically in this browser</p>
+    <p><i class="fa-solid fa-heart" style="color:#e11d48;"></i> Made with care — Your data is saved automatically in this browser</p>
 </footer>
 
 <script src="scrip.js"></script>
