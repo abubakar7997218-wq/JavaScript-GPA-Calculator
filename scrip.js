@@ -52,7 +52,9 @@ function loadCourses() {
 // ===== Theme =====
 function applyTheme(theme) {
     document.documentElement.setAttribute("data-theme", theme);
-    themeToggle.textContent = theme === "dark" ? "☀️" : "🌙";
+    themeToggle.innerHTML = theme === "dark"
+        ? '<i class="fa-solid fa-sun"></i>'
+        : '<i class="fa-solid fa-moon"></i>';
     localStorage.setItem(THEME_KEY, theme);
 }
 
@@ -93,8 +95,8 @@ function renderTable() {
             <td data-label="Grade">${c.grade}</td>
             <td data-label="Grade Point">${point}</td>
             <td data-label="Action">
-                <button class="delete-btn edit-btn" data-index="${index}" style="background:#f59e0b;margin-right:6px;">Edit</button>
-                <button class="delete-btn" data-index="${index}">Delete</button>
+                <button class="delete-btn edit-btn" data-index="${index}" style="background:#f59e0b;margin-right:6px;"><i class="fa-solid fa-pen"></i> Edit</button>
+                <button class="delete-btn" data-index="${index}"><i class="fa-solid fa-trash"></i> Delete</button>
             </td>
         `;
 
@@ -121,7 +123,7 @@ function renderTable() {
             ch.value = course.credit;
             grade.value = course.grade;
             editIndex = idx;
-            ac.innerHTML = "<span>✔️</span> Update Course";
+            ac.innerHTML = '<i class="fa-solid fa-check"></i> Update Course';
             cn.focus();
             window.scrollTo({ top: 0, behavior: "smooth" });
         });
@@ -180,7 +182,7 @@ ac.addEventListener("click", function () {
     if (editIndex !== null) {
         courses[editIndex] = obj;
         editIndex = null;
-        ac.innerHTML = "<span>➕</span> Add Course";
+        ac.innerHTML = '<i class="fa-solid fa-plus"></i> Add Course';
     } else {
         courses.push(obj);
     }
@@ -225,13 +227,13 @@ calculate.addEventListener("click", function () {
 
     // Remark based on GPA
     let remark = "";
-    if (result >= 3.7) remark = "🌟 Excellent! Keep it up.";
-    else if (result >= 3.3) remark = "👍 Very Good.";
-    else if (result >= 3.0) remark = "🙂 Good standing.";
-    else if (result >= 2.0) remark = "⚠️ Satisfactory — room to improve.";
-    else remark = "🚨 Needs serious improvement.";
+    if (result >= 3.7) remark = '<i class="fa-solid fa-star"></i> Excellent! Keep it up.';
+    else if (result >= 3.3) remark = '<i class="fa-solid fa-thumbs-up"></i> Very Good.';
+    else if (result >= 3.0) remark = '<i class="fa-solid fa-face-smile"></i> Good standing.';
+    else if (result >= 2.0) remark = '<i class="fa-solid fa-triangle-exclamation"></i> Satisfactory — room to improve.';
+    else remark = '<i class="fa-solid fa-circle-exclamation"></i> Needs serious improvement.';
 
-    gpaRemark.textContent = remark;
+    gpaRemark.innerHTML = remark;
 
     // Smooth scroll to result on mobile
     document.querySelector(".result-box").scrollIntoView({ behavior: "smooth", block: "center" });
@@ -244,7 +246,7 @@ clearAll.addEventListener("click", function () {
     if (confirm("Are you sure you want to remove all courses?")) {
         courses = [];
         editIndex = null;
-        ac.innerHTML = "<span>➕</span> Add Course";
+        ac.innerHTML = '<i class="fa-solid fa-plus"></i> Add Course';
         saveCourses();
         renderTable();
         gpa.textContent = "0.00";
