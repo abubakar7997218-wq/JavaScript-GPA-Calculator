@@ -1,110 +1,143 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GPA Calculator</title>
-    <link rel="stylesheet" href="ssp.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>GPA Calculator Pro</title>
+<link rel="stylesheet" href="ssp.css">
 </head>
 <body>
 
-    <header>
-        <h1>GPA Calculator</h1>
-    </header>
+<button id="themeToggle" class="theme-toggle" title="Toggle Dark Mode">🌙</button>
 
-    <main>
+<header>
+    <h1>🎓 GPA Calculator Pro</h1>
+    <p class="subtitle">Add your courses, pick a grade, and get your GPA instantly</p>
+</header>
 
-        <div class="container">
+<main>
+    <div class="container">
 
-            <!-- Input Section -->
-            <div class="input-section">
+        <!-- Stats Bar -->
+        <div class="stats-bar">
+            <div class="stat-box">
+                <span class="stat-value" id="statCourses">0</span>
+                <span class="stat-label">Courses</span>
+            </div>
+            <div class="stat-box">
+                <span class="stat-value" id="statCredits">0</span>
+                <span class="stat-label">Credit Hours</span>
+            </div>
+            <div class="stat-box">
+                <span class="stat-value" id="statGPA">0.00</span>
+                <span class="stat-label">Current GPA</span>
+            </div>
+        </div>
 
-                <div class="field">
-                    <label for="cn">Course Name</label>
-                    <input type="text" id="cn" placeholder="Enter Course Name">
-                </div>
+        <!-- Input Section -->
+        <div class="input-section">
 
-                <div class="field">
-                    <label for="ch">Credit Hours</label>
-                    <select id="ch">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                    </select>
-                </div>
-
-                <div class="field">
-                    <label for="grade">Grade</label>
-
-                    <select id="grade">
-
-                        <option value="A+">A+</option>
-                        <option value="A">A</option>
-                        <option value="A-">A-</option>
-
-                        <option value="B+">B+</option>
-                        <option value="B">B</option>
-                        <option value="B-">B-</option>
-
-                        <option value="C+">C+</option>
-                        <option value="C">C</option>
-                        <option value="C-">C-</option>
-
-                        <option value="D+">D+</option>
-                        <option value="D">D</option>
-                        <option value="D-">D-</option>
-                        <option value="F">F</option>
-
-                    </select>
-
-                </div>
-
-                <button id="addCourse">
-                    Add Course
-                </button>
-
+            <div class="field">
+                <label for="cn">Course Name</label>
+                <input type="text" id="cn" placeholder="e.g. Calculus I" maxlength="40">
             </div>
 
-            <hr>
+            <div class="field">
+                <label for="ch">Credit Hours</label>
+                <select id="ch">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3" selected>3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                </select>
+            </div>
 
-            <!-- Table -->
+            <div class="field">
+                <label for="grade">Grade</label>
+                <select id="grade">
+                    <option value="A+">A+ (4.00)</option>
+                    <option value="A">A (4.00)</option>
+                    <option value="A-">A- (3.70)</option>
+                    <option value="B+">B+ (3.30)</option>
+                    <option value="B">B (3.00)</option>
+                    <option value="B-">B- (2.70)</option>
+                    <option value="C+">C+ (2.30)</option>
+                    <option value="C">C (2.00)</option>
+                    <option value="C-">C- (1.70)</option>
+                    <option value="D+">D+ (1.30)</option>
+                    <option value="D">D (1.00)</option>
+                    <option value="D-">D- (0.70)</option>
+                    <option value="F">F (0.00)</option>
+                </select>
+            </div>
 
-            <table id="courseTable">
-
-                <thead>
-<tr>
-    <th>Course</th>
-    <th>Credit Hours</th>
-    <th>Grade</th>
-    <th>Grade Point</th>
-    <th>Action</th>
-</tr>
-</thead>
-
-                <tbody id="tableBody">
-
-                </tbody>
-
-            </table>
-
-            <hr>
-
-            <button id="calculate">
-                Calculate GPA
+            <button id="addCourse" class="btn btn-primary">
+                <span>➕</span> Add Course
             </button>
-
-            <h2>
-                Your GPA :
-                <input type="text" id="gpa" readonly>
-            </h2>
 
         </div>
 
-    </main>
+        <hr>
 
-    <script src="scrip.js"></script>
+        <!-- Table (desktop) / Cards (mobile) -->
+        <div class="table-wrap">
+            <table id="courseTable">
+                <thead>
+                    <tr>
+                        <th>Course</th>
+                        <th>Credit Hrs</th>
+                        <th>Grade</th>
+                        <th>Grade Point</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody"></tbody>
+            </table>
 
+            <p id="emptyMsg" class="empty-msg">No courses added yet. Add your first course above ⬆️</p>
+        </div>
+
+        <div class="action-row">
+            <button id="calculate" class="btn btn-primary">📊 Calculate GPA</button>
+            <button id="clearAll" class="btn btn-danger">🗑️ Clear All</button>
+        </div>
+
+        <hr>
+
+        <div class="result-box">
+            <h2>Your GPA</h2>
+            <div class="gpa-display" id="gpa">0.00</div>
+            <p class="gpa-remark" id="gpaRemark"></p>
+        </div>
+
+        <!-- Grade Scale Reference -->
+        <details class="scale-info">
+            <summary>📋 Grade Point Scale</summary>
+            <div class="scale-grid">
+                <span>A+ / A = 4.00</span>
+                <span>A- = 3.70</span>
+                <span>B+ = 3.30</span>
+                <span>B = 3.00</span>
+                <span>B- = 2.70</span>
+                <span>C+ = 2.30</span>
+                <span>C = 2.00</span>
+                <span>C- = 1.70</span>
+                <span>D+ = 1.30</span>
+                <span>D = 1.00</span>
+                <span>D- = 0.70</span>
+                <span>F = 0.00</span>
+            </div>
+        </details>
+
+    </div>
+</main>
+
+<footer>
+    <p>Made with ❤️ — Your data is saved automatically in this browser</p>
+</footer>
+
+<script src="scrip.js"></script>
 </body>
 </html>
